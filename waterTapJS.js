@@ -50,3 +50,32 @@ console.log(
   calculateTimeForQueue(queueLengthExample, flowRatesExample, walkTimeExample)
 );
 console.log("-----");
+
+// Scenario with increase of flow rate of at least one of the taps which will not increase the time of queue
+let queueLengthExample2 = [1000, 1000, 1000]; // Three bottles each with 1000 ml
+let flowRatesExample2 = [100, 100, 200]; // Initial flow rates of Tap 1, Tap 2, and Tap 3
+let initialTime = calculateTimeForQueue(
+  queueLengthExample2,
+  flowRatesExample2,
+  walkTimeExample
+);
+
+// Now, let's increase the flow rate of all three taps
+flowRatesExample2[0] = 200;
+flowRatesExample2[1] = 200;
+flowRatesExample2[2] = 400;
+let updatedTime = calculateTimeForQueue(
+  queueLengthExample2,
+  flowRatesExample2,
+  walkTimeExample
+);
+
+console.log(
+  "Initial time (with flow rates 100 ml/s, 100 ml/s, and 200 ml/s):",
+  initialTime
+);
+console.log(
+  "Updated time (with flow rates 200 ml/s, 200 ml/s, and 400 ml/s):",
+  updatedTime
+);
+console.log("Time increased:", updatedTime > initialTime);

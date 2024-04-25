@@ -52,4 +52,29 @@ echo "-----\n";
 echo calculateTimeForQueue($queueLengthExample, $flowRatesExample, $walkTimeExample) . "\n";
 echo "-----\n";
 
+
+// Example input values to test the function
+$queueLengthExampleTwo = [1000, 1000, 1000];
+$flowRatesExampleTwo = [100, 100, 200];
+$initialTime = calculateTimeForQueue(
+    $queueLengthExampleTwo,
+    $flowRatesExampleTwo,
+    $walkTimeExample
+  );
+
+  // Now, let's increase the flow rate of all three taps
+$flowRatesExampleTwo[0] = 200;
+$flowRatesExampleTwo[1] = 200;
+$flowRatesExampleTwo[2] = 400;
+
+$updatedTime = calculateTimeForQueue(
+    $queueLengthExampleTwo,
+    $flowRatesExampleTwo,
+    $walkTimeExample
+  );
+
+echo "Initial time (with flow rates 100 ml/s, 100 ml/s, and 200 ml/s): " . $initialTime . "\n";
+echo "Updated time (with flow rates 200 ml/s, 200 ml/s, and 400 ml/s): " . $updatedTime . "\n";
+echo "Time increased: " . ($updatedTime > $initialTime ? "true" : "false") . "\n";
+
 ?>
